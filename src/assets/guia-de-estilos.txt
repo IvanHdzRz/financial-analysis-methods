@@ -1,0 +1,12 @@
+guia de estilos
+ colores:
+
+--DarkNavi: #1D2339;
+--LightNavi:#272D47
+--Green:#56E39C
+--Red:#FF9185
+--ActiveYellow:#E1F336
+
+font: Monserrat
+regular,medium,semibold
+
