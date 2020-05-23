@@ -34,6 +34,7 @@ class Navigation extends React.Component{
                     <img src={compare}/> 
                     <span className={Styles.label}>comparar</span>
                 </button>
+               {/*Fix Reutilizar creando componente modal*/}
                 <NewDiagram 
                     visible={this.state.visibleNew} 
                     onClose={this.closeCreateDiagram} 
