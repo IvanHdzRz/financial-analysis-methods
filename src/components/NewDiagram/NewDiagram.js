@@ -11,8 +11,8 @@ const NewDiagram = (props)=>{
         ReactDOM.createPortal(
             <div className={Styles.modal}>
                 <h2 className={Styles.title}>Nuevo Diagrama</h2>
-                <label htmlFor='title'  className={Styles.label}>Titulo</label>
-                <input type='text' name='title'  className={Styles.input} id='txtTitle'/>
+                <label htmlFor='txtTitle'  className={Styles.label}>Titulo</label>
+                <input type='text' name='title'  className={Styles.input} id='txtTitle' autofocus/>
                 <button  className={Styles.btnCancel} onClick={props.onClose}>
                     Cancelar
                 </button> 

@@ -30,7 +30,7 @@ class Navigation extends React.Component{
                     <img src={plus}/> 
                     <span className={Styles.label}>nuevo</span>
                 </button>
-                <button onClick={this.props.onNew} className={`${Styles.btn} ${Styles.plus}`}>
+                <button onClick={()=>{alert('en construccion')}} className={`${Styles.btn} ${Styles.plus}`}>
                     <img src={compare}/> 
                     <span className={Styles.label}>comparar</span>
                 </button>

@@ -1,0 +1,54 @@
+:root{
+    --ActiveYellow:#E1F336;
+    --DarkNavi: #1D2339;
+    --LightNavi:#272D47;
+}
+.selector{
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--LightNavi);
+    overflow-x: scroll;
+    box-sizing: content-box;
+    scrollbar-face-color: rgba(255,255,255,0.5);
+    
+}
+
+
+.btn{
+    flex-shrink: 0;
+    height: 2rem;
+    margin:0.5rem;
+    border:none;
+    color: rgba(255,255,255,0.8);
+    background-color: transparent;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+.active{
+    background-color: var(--ActiveYellow);
+    color:var(--DarkNavi);
+}
+
+/*Estilos para la barra de scroll solo funciona en chrome*/
+.selector::-webkit-scrollbar {
+    width: 8px;     /* Tamaño del scroll en vertical */
+    height: 5px;    /* Tamaño del scroll en horizontal */
+}
+.selector::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 2.5px;
+    transition: all .3seg;
+}
+.selector::-webkit-scrollbar-thumb:active {
+    background-color: rgba(255,255,255,0.5);
+}
+.selector::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255,255,255,0.5);
+    height: 10px;
+    border-radius: 5px;
+}
