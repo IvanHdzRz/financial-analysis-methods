@@ -12,7 +12,7 @@ const NewDiagram = (props)=>{
             <div className={Styles.modal}>
                 <h2 className={Styles.title}>Nuevo Diagrama</h2>
                 <label htmlFor='txtTitle'  className={Styles.label}>Titulo</label>
-                <input type='text' name='title'  className={Styles.input} id='txtTitle' autofocus/>
+                <input type='text' name='title'  className={Styles.input} id='txtTitle' autoFocus/>
                 <button  className={Styles.btnCancel} onClick={props.onClose}>
                     Cancelar
                 </button> 

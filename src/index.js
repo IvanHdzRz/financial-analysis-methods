@@ -4,7 +4,7 @@ import Diagram from './classes/Diagram.js';
 import Navigation from './components/Navigation';
 import Styles from './app.module.css'
 import DiagramSelector from './components/DiagramSelector'
-
+import WorkBench from './components/WorkBench'
 class App extends React.Component{
   
   constructor(){
@@ -42,7 +42,7 @@ class App extends React.Component{
     return (
       <div className={app}>
         <DiagramSelector diagrams={diagrams} onSelectDiagram={this.changeFocusedDiagram} focus={this.state.DiagramOnFocus}/>
-        <h2>{this.state.Diagrams.get(this.state.DiagramOnFocus).title}</h2>
+        <WorkBench value={this.state.Diagrams.get(this.state.DiagramOnFocus)}/>
         <Navigation onNew={this.newDiagram} />
         
       </div>
