@@ -1,13 +1,10 @@
 .workbench{
-    flex-basis: 0;
-    flex-grow: 1;
+    grid-area: workbench;
     min-width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 3rem;
-    padding:1rem;
     box-sizing: border-box;
 }
 .options,.diagram{
@@ -17,4 +14,7 @@
 }
 .options{
     background-color: var(--LightNavi);
+    width: 100vw;
+    padding: 1rem;
+    box-sizing: border-box;
 }

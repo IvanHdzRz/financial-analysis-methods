@@ -4,6 +4,7 @@
     --LightNavi:#272D47;
 }
 .selector{
+    grid-area: selector;
     display: flex;
     flex-wrap: nowrap;
     justify-content: start;
