@@ -18,3 +18,8 @@
     padding: 1rem;
     box-sizing: border-box;
 }
+.options>span{
+    font-size: 1.2rem;
+    font-weight: 500;
+    
+}

@@ -12,9 +12,9 @@ class Options extends React.Component {
     displayHeaders=()=>{
         const headers=[];
         this.props.tabs.forEach((tab,id) => {
-            let active=(id===this.state.optionsShowed)?'Active':' ';
+            let active=(id===this.state.optionsShowed)?Styles.active:' ';
             headers.push(
-                <button key={id} onClick={()=>{this.changeTab(id)}} className={active}> 
+                <button key={id} onClick={()=>{this.changeTab(id)}} className={`${Styles.tabHeader} ${active}`}> 
                     {tab.header} 
                 </button>
                 )
@@ -26,7 +26,7 @@ class Options extends React.Component {
          
         return (
             <div className={Styles.options}>
-                <div className='Headers'>
+                <div className={Styles.headers}>
                    {this.displayHeaders()}
                 </div>        
                 <div className='tab selected'>
