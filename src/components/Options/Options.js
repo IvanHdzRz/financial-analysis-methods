@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Styles from './options.module.css'
 class Options extends React.Component {
     
     state={
@@ -25,7 +25,7 @@ class Options extends React.Component {
     render(){
          
         return (
-            <div className='options'>
+            <div className={Styles.options}>
                 <div className='Headers'>
                    {this.displayHeaders()}
                 </div>        

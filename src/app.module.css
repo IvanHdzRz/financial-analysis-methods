@@ -8,4 +8,7 @@
     min-height: 100vh;
     background-color:var(--DarkNavi);
     color: white;
+    display: flex;
+    flex-direction: column;
+    
 }

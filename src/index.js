@@ -41,8 +41,16 @@ class App extends React.Component{
     const diagrams=this.state.Diagrams;
     return (
       <div className={app}>
-        <DiagramSelector diagrams={diagrams} onSelectDiagram={this.changeFocusedDiagram} focus={this.state.DiagramOnFocus}/>
-        <WorkBench value={this.state.Diagrams.get(this.state.DiagramOnFocus)}/>
+        <DiagramSelector 
+          diagrams={diagrams}
+          onSelectDiagram={this.changeFocusedDiagram} 
+          focus={this.state.DiagramOnFocus}
+          className={Styles.diagramSelector}
+        />
+        <WorkBench 
+          value={this.state.Diagrams.get(this.state.DiagramOnFocus)}
+          className={Styles.workBench}
+        />
         <Navigation onNew={this.newDiagram} />
         
       </div>
