@@ -8,7 +8,7 @@ const WorkBench =(props)=>{
     const agregarTabs=new Map();
     agregarTabs.set(1,{header:'unico',children:<h1>Unico</h1>})
     agregarTabs.set(2,{header:'uniforme',children:<h1>uniforme</h1>})
-    agregarTabs.set(3,{header:'gradiente',children:<FormGradient />})
+    agregarTabs.set(3,{header:'gradiente',children:<FormGradient  type='edit' onAction={props.onAdd} id_diagram={props.value.id}/>})
    
     {/*Objeto que representa las pestañas de la seccion opciones*/}
     const tabs = new Map();
@@ -19,7 +19,9 @@ const WorkBench =(props)=>{
     return(
         <div className={Styles.workbench}>
             <div className={Styles.diagram}>
-                {props.value.title}
+                {props.value.title} <br/>
+                interes: {props.value.interest}% <br/> 
+               
             </div>
             <div className={Styles.options}>
                 <span>Montos</span>

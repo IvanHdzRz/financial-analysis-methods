@@ -1,7 +1,8 @@
 class Diagram{
-    constructor(title,amounts){
+    constructor(title,amounts,interest){
       this.title=title;
       this.amounts=amounts;
+      this.interest=interest;
       this.id=Diagram.incrementId();
     }
   
