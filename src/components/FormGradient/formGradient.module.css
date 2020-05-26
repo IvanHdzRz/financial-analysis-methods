@@ -1,0 +1,96 @@
+.formGradient{
+   margin-top:1rem;
+    min-height: 10rem; 
+   display: grid;
+   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+   grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+     grid-template-areas:
+    "periodos lblStart startinp lblEnd endinp"
+    "lblUniform lblUniform uniform uniform uniform"
+    "lblGradient lblGradient gradient gradient gradient"
+    "lblLabel lblLabel label label label"
+    ". btn btn btn ."
+    ; 
+    color:rgba(255,255,255,0.8);
+}
+input{
+    background-color: rgba(255,255,255,0.5);
+    border: none;
+    height: 1rem;
+    font-size: 0.8rem;
+}
+.period{
+    width: 3rem;
+}
+.amount{
+    width: 10rem;
+}
+.label{
+    width: 10rem;
+}
+.formGradient>span{
+    grid-area: periodos;
+    
+}
+
+/*--------------*/
+.labelStart{
+    grid-area: lblStart;
+    justify-self: center;
+}
+.start{
+    grid-area: startinp;
+    justify-self: center;
+}
+.labelEnd{
+    grid-area: lblEnd;
+    justify-self: center;
+}
+.end{
+    grid-area: endinp;
+    justify-self: center;
+}
+
+.labelUniform{
+    grid-area: lblUniform;
+    
+}
+.uniform{
+    grid-area:uniform ;
+    
+}
+.labelGradient{
+    grid-area: lblGradient;
+    
+}
+.gradient{
+    grid-area: gradient;
+    
+}
+.labelLabel{
+    grid-area: lblLabel;
+    
+}
+.label{
+    grid-area: label;
+    
+}
+
+.btnAction{
+    grid-area: btn;
+    justify-self: center;
+    height: 2rem;
+    width: 10rem;
+    background-color: transparent;
+    border:none;
+    border-radius: 1rem;
+    border: 2px solid var(--ActiveYellow);
+    color: var(--ActiveYellow);
+    font-size: 1rem;
+    font-weight: 400;
+    transition: all .3s;
+}
+.btnAction:hover{
+    background-color: var(--ActiveYellow);
+    color:var(--DarkNavi);
+}
