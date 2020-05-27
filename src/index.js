@@ -47,7 +47,7 @@ class App extends React.Component{
   }
   newDiagram=(title)=>{
     //se crea nuevo diagrama
-    const newDiagram= new Diagram(title,[],10)
+    const newDiagram= new Diagram(title,new Map(),10)
     const actualDiagrams= this.state.Diagrams
     actualDiagrams.set(newDiagram.id,newDiagram);
     //se agrega al estado...
