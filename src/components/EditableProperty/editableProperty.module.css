@@ -1,0 +1,20 @@
+.editableProperty{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.editableProperty>span{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.btnEdit{
+    height: 1.2rem;
+    width: 1.2rem;
+    background-color: transparent;
+    border: none;
+    
+}
+
+.btnEdit>img{
+    width: 1rem;    
+}

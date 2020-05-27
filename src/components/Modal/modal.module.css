@@ -16,14 +16,14 @@
     border-radius: 0.5rem;
     padding: 1rem;
     font-family: Monserrat, sans-serif;
-    display:grid;
+    /*display:grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 4rem 1fr 1fr;
     grid-template-areas:
     "titulo titulo titulo titulo"
     "label input input input"
     "Cancel Cancel Create Create "
-    ;
+    ; */
 }
 .title,.btnCancel,.btnCreate,.label,.input{
     justify-self: center;

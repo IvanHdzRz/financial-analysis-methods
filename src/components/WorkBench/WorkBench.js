@@ -5,6 +5,7 @@ import Styles from './workBench.module.css'
 import FormGradient from '../FormGradient'
 import FormUniform from '../FormUniform'
 import FormUnique from '../FormUnique'
+import EditableProperty from '../EditableProperty'
 const WorkBench =(props)=>{
     {/*Objeto que representa las pestañas de la seccion agregar*/}
     const agregarTabs=new Map();
@@ -25,14 +26,34 @@ const WorkBench =(props)=>{
         });
         return lista;
     }
+    const hola=()=>{
+        alert('hola');
+    }
+    const {title,interest}=props.value;
+    console.log(title)
     return(
         <div className={Styles.workbench}>
             <div className={Styles.diagram}>
-                {props.value.title} <br/>
-                interes: {props.value.interest}% <br/> 
-                <ul>
-                    {viewPeriods()}
-                </ul>               
+                <div className={Styles.title}>
+                    <EditableProperty onEdit={hola}>
+                        {title}
+                    </EditableProperty>
+                </div>
+                <div className={Styles.vpn}>
+                    <p>VPN:</p>
+                    <p>$1246</p>
+                </div>
+                
+                <div className={Styles.interest}>
+                    <p>interes</p>
+                    <EditableProperty onEdit={hola} >
+                        {`${interest}%`}
+                    </EditableProperty>
+                </div>
+                
+                <div className={Styles.cashflow}>
+
+                </div>
             </div>
             <div className={Styles.options}>
                 <span>Montos</span>
