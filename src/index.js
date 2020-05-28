@@ -33,12 +33,12 @@ class App extends React.Component{
     //obtengo todos los diagramas del estado
     const actualDiagrams=this.state.Diagrams;
     //obtengo las props del diagrama al que se le agregaran montos
-    const {title,amounts}=actualDiagrams.get(id_diagram)
+    const {title,amounts,interest}=actualDiagrams.get(id_diagram)
     //agrego el nuevo monto que me llega como parametro al array de montos del diagrama
     const newAmount= new Amount(amountProperties);
     amounts.set(newAmount.id,newAmount);
     //actualizo las props del diagrama
-    actualDiagrams.set(id_diagram,{id:id_diagram,title:title,amounts:amounts});
+    actualDiagrams.set(id_diagram,{id:id_diagram,title:title,amounts:amounts,interest:interest});
     //actualizo el estado de la app
     this.setState({Diagrams:actualDiagrams,DiagramOnFocus:focus});
     
