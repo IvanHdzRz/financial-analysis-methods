@@ -45,16 +45,34 @@ class App extends React.Component{
     console.log(this.state.Diagrams.get(id_diagram).amounts,id_diagram);
     
   }
-  newDiagram=(title)=>{
+  newDiagram=(title,interest)=>{
     //se crea nuevo diagrama
-    const newDiagram= new Diagram(title,new Map(),10)
+    const newDiagram= new Diagram(title,new Map(),interest)
     const actualDiagrams= this.state.Diagrams
     actualDiagrams.set(newDiagram.id,newDiagram);
     //se agrega al estado...
     this.setState({Diagrams:actualDiagrams});
+    //se pone en foco el nuevo diagrama
+    this.changeFocusedDiagram(newDiagram.id);
     console.log(this.state);
   }
-  
+  editDiagramTitle=(id_diagram,newTitle)=>{
+    const focus=this.state.DiagramOnFocus;
+    
+    //obtengo todos los diagramas del estado
+    const actualDiagrams=this.state.Diagrams;
+    
+    //obtengo las props del diagrama al editare el titulo
+    const {amounts,interest}=actualDiagrams.get(id_diagram)
+    
+    //actualizo las props del diagrama
+    actualDiagrams.set(id_diagram,{id:id_diagram,title:newTitle,amounts:amounts,interest:interest});
+    
+    //actualizo el estado de la app
+    this.setState({Diagrams:actualDiagrams,DiagramOnFocus:focus});
+  }
+
+
   render (){
     const {app}=Styles;
     const diagrams=this.state.Diagrams;
@@ -69,7 +87,7 @@ class App extends React.Component{
         <WorkBench 
           value={this.state.Diagrams.get(this.state.DiagramOnFocus)}
           className={Styles.workBench} onAdd={this.addAmount}
-
+          onTitleEdit={this.editDiagramTitle}
         />
         <Navigation onNew={this.newDiagram} />
         

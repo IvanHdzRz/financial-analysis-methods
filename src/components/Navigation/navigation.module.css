@@ -15,7 +15,85 @@
     border:none; 
     box-sizing: border-box;
 }
-.label{
+.labelNav{
     display:block;
     text-transform: capitalize;
 }
+
+.formNewDiagram{
+    width: 18rem;
+    height: 15rem;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 4rem 1fr 1fr 1fr;
+    grid-template-areas:
+    "titulo titulo titulo titulo"
+    "label input input input"
+    "labelI inputI inputI ."
+    "Cancel Cancel Create Create "
+    ;
+}
+
+.title,.btnCancel,.btnCreate,.label,.input{
+    justify-self: center;
+    align-self: center;
+}
+.btnCancel, .btnCreate{
+    width: 8rem;
+    height: 3rem;
+    font-size: 1rem;
+    border: none;
+    padding: 0.3rem;
+    border-radius: 1.5rem;
+    background-color: transparent;
+}
+
+.title{
+    grid-area: titulo;
+    font-size: 2rem;
+    margin: 0;
+    color:var(--DarkNavi);
+}
+.btnCancel{
+    grid-area:Cancel;   
+    border: 3px solid var(--DarkNavi);
+    color: var(--DarkNavi);
+    font-weight:800;
+}
+.btnCreate{
+    grid-area: Create;
+    background-color: var(--ActiveYellow);
+    color: var(--DarkNavi);
+    font-weight: 800;
+}
+.label,.labelI{
+    
+    font-size: 1.5rem;
+    justify-self: start;
+    color: var(--DarkNavi);
+}
+.label{
+    grid-area: label;
+}
+.labelI{
+    grid-area: labelI;
+}
+.input,.inputI{
+    
+    justify-self: start;
+    font-size: 1.2rem;
+    height: 1.5rem;
+    
+    background-color: transparent;
+    border-bottom: 3px solid var(--DarkNavi);
+}
+.input{
+    grid-area: input;
+    width: 12rem;
+
+}
+.inputI{
+    grid-area: inputI;
+    width: 6rem;
+}
+
