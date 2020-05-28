@@ -6,7 +6,7 @@ import FormGradient from '../FormGradient'
 import FormUniform from '../FormUniform'
 import FormUnique from '../FormUnique'
 import EditableProperty from '../EditableProperty'
-import Modal from '../Modal'
+import ModalEditProperty from '../ModalEditProperty'
 
 class WorkBench extends React.Component{
     state={
@@ -18,6 +18,12 @@ class WorkBench extends React.Component{
         this.setState({
             showTitleEditor:true,
             showInterestEditor:false,
+        })
+    }
+    showInterestEditor=()=>{
+        this.setState({
+            showTitleEditor:false,
+            showInterestEditor:true,
         })
     }
     closeEdit=()=>{
@@ -41,6 +47,7 @@ class WorkBench extends React.Component{
         
         const {title,interest,id}=this.props.value;
         const isVisibleEditTitle=(this.state.showTitleEditor===true)?true:false;
+        const isVisibleEditInterest=(this.state.showInterestEditor===true)?true:false;
         console.log(title)
         return(
             <div className={Styles.workbench}>
@@ -57,7 +64,7 @@ class WorkBench extends React.Component{
                     
                     <div className={Styles.interest}>
                         <p>interes</p>
-                        <EditableProperty onEdit={this.showTitleEditor} >
+                        <EditableProperty onEdit={this.showInterestEditor} >
                             {`${interest}%`}
                         </EditableProperty>
                     </div>
@@ -73,23 +80,23 @@ class WorkBench extends React.Component{
                         defaultDisplayed={seccionAgregar}
                     />
                 </div>
-                <Modal visible={isVisibleEditTitle}>
-                   <div className='formEditTitle'>
-                        
-                        <label htmlFor='txtTitle'  className={Styles.label}>nuevo titulo</label>
-                        <input type='text' name='title'  className={Styles.input} id='txtTitle' autoFocus ref={this.newTitle}/>
-                        <button 
-                            onClick={()=>{
-                                this.props.onTitleEdit(id,this.newTitle.current.value)
-                                this.closeEdit();
-                            }}>
-                            guardar
-                        </button>
-                        <button onClick={this.closeEdit}>
-                            cancel
-                        </button>
-                   </div>
-                </Modal>
+                <ModalEditProperty 
+                    visible={isVisibleEditTitle} 
+                    onEdit={this.props.onTitleEdit} 
+                    onClose={this.closeEdit} 
+                    title={'Nuevo titulo'}   
+                    id={id} 
+                    
+                />
+                <ModalEditProperty 
+                    visible={isVisibleEditInterest} 
+                    onEdit={this.props.onInterestEdit} 
+                    onClose={this.closeEdit} 
+                    title={'Nuevo interes'}   
+                    id={id} 
+                    
+                />
+
             </div>
         )
     }

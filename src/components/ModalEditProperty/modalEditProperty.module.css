@@ -1,0 +1,48 @@
+.formEdit{
+    width: 15rem;
+    height: 8rem;
+    display:grid;
+    grid-row: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "label label "
+    "input input"
+    "btnCancel btnConfirm"
+    ;
+}
+.input{
+    grid-area: input;
+    width: 12rem;
+    justify-self: center;
+    font-size: 1.2rem;
+    background-color: transparent;
+    border-bottom: 3px solid var(--DarkNavi);
+}
+.label{
+    grid-area: label;
+    color:var(--DarkNavi);
+    font-weight: 600;
+    font-size: 1.5rem;
+    justify-self: center;
+}
+.btn{
+    width: 7rem;
+    height: 2rem;
+    font-size: 1rem;
+    border:none;
+    border-radius: 1rem;
+    align-self:baseline;
+    font-weight:600;
+    text-transform: capitalize;
+}
+.confirm{
+    grid-area: btnConfirm;
+    color:var(--DarkNavi);
+    background-color: var(--ActiveYellow);
+       
+}
+.cancel{
+    grid-area: btnCancel;
+    background-color: transparent;
+    border: 2px solid var(--DarkNavi);
+}

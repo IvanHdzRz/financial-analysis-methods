@@ -71,6 +71,21 @@ class App extends React.Component{
     //actualizo el estado de la app
     this.setState({Diagrams:actualDiagrams,DiagramOnFocus:focus});
   }
+  editDiagramInterest=(id_diagram,newInterest)=>{
+    const focus=this.state.DiagramOnFocus;
+    
+    //obtengo todos los diagramas del estado
+    const actualDiagrams=this.state.Diagrams;
+    
+    //obtengo las props del diagrama al editare el titulo
+    const {title,amounts}=actualDiagrams.get(id_diagram)
+    
+    //actualizo las props del diagrama
+    actualDiagrams.set(id_diagram,{id:id_diagram,title:title,amounts:amounts,interest:newInterest});
+    
+    //actualizo el estado de la app
+    this.setState({Diagrams:actualDiagrams,DiagramOnFocus:focus});
+  }
 
 
   render (){
@@ -88,6 +103,7 @@ class App extends React.Component{
           value={this.state.Diagrams.get(this.state.DiagramOnFocus)}
           className={Styles.workBench} onAdd={this.addAmount}
           onTitleEdit={this.editDiagramTitle}
+          onInterestEdit={this.editDiagramInterest}
         />
         <Navigation onNew={this.newDiagram} />
         
