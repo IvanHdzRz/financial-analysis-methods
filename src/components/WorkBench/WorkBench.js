@@ -8,7 +8,7 @@ import FormUnique from '../FormUnique'
 import EditableProperty from '../EditableProperty'
 import ModalEditProperty from '../ModalEditProperty'
 import Cashflow from '../CashFlow'; 
-import Methods from '../../classes/Methods'
+import FneTable from '../../classes/FneTable'
 class WorkBench extends React.Component{
     state={
         showTitleEditor:false,
@@ -60,7 +60,7 @@ class WorkBench extends React.Component{
                     </div>
                     <div className={Styles.vpn}>
                         <p>VPN:</p>
-                        <p>$1246</p>
+                        <p>${new Intl.NumberFormat("es-MX").format(new FneTable(amounts).getVpn(interest/100))}</p>
                     </div>
                     
                     <div className={Styles.interest}>
@@ -70,7 +70,7 @@ class WorkBench extends React.Component{
                         </EditableProperty>
                     </div>
                     
-                    <Cashflow last={Methods.getFne(amounts)} amounts={amounts}/>
+                    <Cashflow FneTable={new FneTable(amounts).value} />
                     
                 </div>
                 <div className={Styles.options}>
