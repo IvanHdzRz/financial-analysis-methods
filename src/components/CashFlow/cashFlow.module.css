@@ -1,0 +1,21 @@
+.messageEmpty{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color: rgba(255,255,255,.8);
+    grid-area: cashflow;
+    justify-self:center;
+}
+.messageEmpty>p{
+    display: inline-block;
+    text-align: center;
+    padding:1rem;
+    
+}
+.CashFlow{
+    grid-area: cashflow;
+    justify-self:stretch ;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}

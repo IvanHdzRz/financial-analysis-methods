@@ -36,9 +36,9 @@ const FormUniform = (props) =>{
             onClick={()=>{
                 const amountProperties={
                     type:'uniform',
-                    start:start.current.value,
-                    end:end.current.value,
-                    amount:amount.current.value,
+                    start:parseInt(start.current.value),
+                    end:parseInt(end.current.value),
+                    amount:parseFloat(amount.current.value),
                     label:label.current.value
                 }
                 props.onAction(props.id_diagram,amountProperties)

@@ -7,7 +7,8 @@ import FormUniform from '../FormUniform'
 import FormUnique from '../FormUnique'
 import EditableProperty from '../EditableProperty'
 import ModalEditProperty from '../ModalEditProperty'
-
+import Cashflow from '../CashFlow'; 
+import Methods from '../../classes/Methods'
 class WorkBench extends React.Component{
     state={
         showTitleEditor:false,
@@ -45,7 +46,7 @@ class WorkBench extends React.Component{
         tabs.set(2,{header:'ver tabla',children:<h1>seccion tabla</h1>})
         const seccionAgregar=1; 
         
-        const {title,interest,id}=this.props.value;
+        const {title,interest,id,amounts}=this.props.value;
         const isVisibleEditTitle=(this.state.showTitleEditor===true)?true:false;
         const isVisibleEditInterest=(this.state.showInterestEditor===true)?true:false;
         console.log(title)
@@ -69,9 +70,8 @@ class WorkBench extends React.Component{
                         </EditableProperty>
                     </div>
                     
-                    <div className={Styles.cashflow}>
-
-                    </div>
+                    <Cashflow last={Methods.getFne(amounts)} amounts={amounts}/>
+                    
                 </div>
                 <div className={Styles.options}>
                     <span>Montos</span>

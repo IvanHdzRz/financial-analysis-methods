@@ -40,7 +40,14 @@ const FormGradient = (props) =>{
             id='btnAction'
             className={Styles.btnAction} 
             onClick={()=>{
-                const amountProperties={type:'gradient',start:start.current.value,end:end.current.value,amount:amount.current.value,g:g.current.value,label:label.current.value}
+                const amountProperties={
+                    type:'gradient',
+                    start:parseInt(start.current.value),
+                    end:parseInt(end.current.value),
+                    amount:parseFloat(amount.current.value),
+                    g:parseFloat(g.current.value),
+                    label:label.current.value
+                }
                 props.onAction(props.id_diagram,amountProperties)
             }}>
                 {message}

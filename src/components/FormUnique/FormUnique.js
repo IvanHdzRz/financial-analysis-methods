@@ -29,8 +29,8 @@ const FormUnique = (props) =>{
             onClick={()=>{
                 const amountProperties={
                     type:'unique',
-                    start:start.current.value,
-                    amount:amount.current.value,
+                    start:parseInt(start.current.value,10),
+                    amount:parseFloat(amount.current.value),
                     label:label.current.value
                 }
                 props.onAction(props.id_diagram,amountProperties)
