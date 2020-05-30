@@ -1,14 +1,36 @@
 .nav{
     grid-area: navigation;
-    min-width: 100vw;
-    min-height: 2.5rem;
-    
+    display: grid;
+    grid-template-rows:auto 3rem;
+    grid-template-areas:
+    "body"
+    "tabHeaders"
+    ;
+}
+.tabHeaders{
+    grid-area: tabHeaders;
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+}
+.tabBody{
+    grid-area: body;
+    display: grid;
+}
+.diagrams{
+    display:grid;
+    grid-template-rows: 3rem auto;
+    grid-template-areas: 
+    "selector"
+    "workbench"
+    ;
 }
 .btn{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width:5rem;
+    height: 3rem;
     font-size: 1rem;
     color:rgba(255,255,255,0.5);
     background-color: transparent;
@@ -19,7 +41,7 @@
     display:block;
     text-transform: capitalize;
 }
-
+/*estilos del modal para nuevo diagrama--------------------------*/
 .formNewDiagram{
     width: 18rem;
     height: 15rem;

@@ -6,7 +6,9 @@ import Styles from './app.module.css'
 import DiagramSelector from './components/DiagramSelector'
 import WorkBench from './components/WorkBench'
 import Amount from './classes/Amount';
-
+import plusIcon from './assets/plus.png'
+import compareIcon from './assets/compare.png'
+import navStyles from './components/Navigation/navigation.module.css'
 class App extends React.Component{
   
   constructor(){
@@ -91,21 +93,48 @@ class App extends React.Component{
   render (){
     const {app}=Styles;
     const diagrams=this.state.Diagrams;
+    const tabsBody=new Map();
+    tabsBody.set(1,
+      {
+        bodyForTab:1,
+        body:
+        <div className={navStyles.diagrams}>
+          <DiagramSelector 
+            diagrams={diagrams}
+            onSelectDiagram={this.changeFocusedDiagram} 
+            onNew={this.newDiagram}
+            focus={this.state.DiagramOnFocus}
+            className={Styles.diagramSelector}
+          />
+          <WorkBench 
+            value={this.state.Diagrams.get(this.state.DiagramOnFocus)}
+            className={Styles.workBench} onAdd={this.addAmount}
+            onTitleEdit={this.editDiagramTitle}
+            onInterestEdit={this.editDiagramInterest}
+          />
+      </div>
+      })
+    tabsBody.set(2,
+      {
+        bodyForTab:2,
+        body:
+          <div>
+            <h1>Seccion comparar</h1>
+          </div>
+      })
     return (
       <div className={app}>
-        <DiagramSelector 
-          diagrams={diagrams}
-          onSelectDiagram={this.changeFocusedDiagram} 
-          focus={this.state.DiagramOnFocus}
-          className={Styles.diagramSelector}
+        
+        <Navigation 
+          tabsHeaders={
+            [
+              {id:1,title:'diagramas', icon: plusIcon},
+              {id:2,title:'comparar', icon:compareIcon}
+            ]
+          }
+          tabsBody={tabsBody}
+          defaultTab={1}  
         />
-        <WorkBench 
-          value={this.state.Diagrams.get(this.state.DiagramOnFocus)}
-          className={Styles.workBench} onAdd={this.addAmount}
-          onTitleEdit={this.editDiagramTitle}
-          onInterestEdit={this.editDiagramInterest}
-        />
-        <Navigation onNew={this.newDiagram} />
         
       </div>
     )

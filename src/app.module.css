@@ -9,10 +9,8 @@
     background-color:var(--DarkNavi);
     color: white;
     display:grid;
-    grid-template-rows: 3rem auto 3rem;
+    grid-template-rows:auto;
     grid-template-areas:
-        "selector"
-        "workbench"
         "navigation"
     ;
 }

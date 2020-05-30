@@ -1,15 +1,16 @@
 import React from 'react'
-import plus from '../../assets/plus.png'
-import compare from '../../assets/compare.png'
 import Styles from './navigation.module.css'
 import Modal from '../Modal'
 
 class Navigation extends React.Component{
    
     state={
-        visibleNew:false,
-        visibleCompare:false
+        tabDisplayed:this.props.defaultTab
     }
+    changeTab=(newTabDisplayed)=>{
+        this.setState({tabDisplayed:newTabDisplayed})
+    }
+    /*
     displayCreateDiagram=()=>{
         this.setState({
             visibleNew:true,
@@ -21,22 +22,37 @@ class Navigation extends React.Component{
             visibleNew:false,
             visibleCompare:false
         })
-    }
+    } 
     
     txtTitulo= React.createRef();
-    txtInterest=React.createRef();
+    txtInterest=React.createRef(); 
+    */
+    
     render(){
         return(
             <div className={Styles.nav} >
-                <button onClick={this.displayCreateDiagram} className={Styles.btn}>
-                    <img src={plus}/> 
-                    <span className={Styles.labelNav}>nuevo</span>
-                </button>
-                <button onClick={()=>{alert('en construccion')}} className={`${Styles.btn} ${Styles.plus}`}>
-                    <img src={compare}/> 
-                    <span className={Styles.labelNav}>comparar</span>
-                </button>
-               {/*Fix Reutilizar creando componente modal*/}
+                <div className={Styles.tabHeaders}>
+                    {/*rendereiza los botones para cambiar de pestaña*/}
+                    {this.props.tabsHeaders.map(header=>{
+                        return (
+                            <button onClick={()=>{this.changeTab(header.id)}} className={Styles.btn} key={header.id}>
+                                <img src={header.icon} alt={header.title}/> 
+                                <span className={Styles.labelNav}>{header.title}</span>
+                            </button>
+                        )
+                    })}
+                </div>
+                <div className={Styles.tabBody}>
+                    {this.props.tabsBody.get(this.state.tabDisplayed).body}
+                </div>
+
+
+                 
+
+
+
+
+               {/*Fix Reutilizar creando componente modal
                 <Modal visible={this.state.visibleNew}>
                     <div className={Styles.formNewDiagram}>
                         <h2 className={Styles.title}>Nuevo Diagrama</h2>
@@ -58,7 +74,7 @@ class Navigation extends React.Component{
                                 Crear
                         </button>
                     </div>
-                </Modal>
+                </Modal> */}
             </div>
         )
     }
