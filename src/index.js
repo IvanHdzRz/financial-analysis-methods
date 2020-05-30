@@ -42,7 +42,7 @@ class App extends React.Component{
     //actualizo el estado de la app
     this.setState({Diagrams:actualDiagrams,DiagramOnFocus:focus});
     
-    console.log(this.state.Diagrams.get(id_diagram).amounts,id_diagram);
+    
     
   }
   newDiagram=(title,interest)=>{

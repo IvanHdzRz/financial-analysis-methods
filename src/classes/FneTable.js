@@ -78,10 +78,10 @@ class FneTable {
             return 0;
         }
         let vpn=0;
-        console.log(interest)
+        
         for(let i=0; i<this.value.size;i++){
             vpn+=(this.value.get(i)*(1/(Math.pow(1+interest,i))))
-            console.log('si entre',vpn)
+            
         }
         return vpn
     }

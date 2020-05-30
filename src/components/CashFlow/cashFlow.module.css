@@ -1,3 +1,7 @@
+:root{
+    --Gren:#56E39C;
+    --Red:#FF9185;
+}
 .messageEmpty{
     display: flex;
     justify-content: center;
@@ -18,4 +22,13 @@
     display: flex;
     justify-content: center;
     align-items:center;
+}
+.line{
+    stroke-width: 5;
+}
+.positive{
+    stroke:var(--Gren);
+}
+.negative{
+    stroke:var(--Red);
 }

@@ -49,7 +49,7 @@ class WorkBench extends React.Component{
         const {title,interest,id,amounts}=this.props.value;
         const isVisibleEditTitle=(this.state.showTitleEditor===true)?true:false;
         const isVisibleEditInterest=(this.state.showInterestEditor===true)?true:false;
-        console.log(title)
+        
         return(
             <div className={Styles.workbench}>
                 <div className={Styles.diagram}>
