@@ -3,19 +3,52 @@
     --DarkNavi: #1D2339;
     --LightNavi:#272D47;
 }
-.selector{
+.DiagramSelector{
     grid-area: selector;
+    display: grid;
+    grid-template-columns: auto 3rem;
+    grid-template-areas: "select addDiagram";
+}
+.selector{
+    grid-area: select;
     display: flex;
     flex-wrap: nowrap;
     justify-content: start;
     align-items: center;
     background-color: var(--LightNavi);
     overflow-x: scroll;
+    overflow-y: hidden;
     box-sizing: content-box;
     scrollbar-face-color: rgba(255,255,255,0.5);
     
 }
+.addDiagram{
+    grid-area: addDiagram;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--LightNavi);
 
+}
+.btnAdd{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border:none;
+    border: 3px solid var(--ActiveYellow);
+    border-radius: 1rem;
+    color: rgba(255,255,255,0.8);
+    background-color:  var(--ActiveYellow);
+    font-size: 1rem;
+    padding: 0.5rem;
+    height: 2rem;
+    width: 2rem;
+    box-sizing: border-box;
+    font-size: 2rem;
+    text-align: center;
+    color:var(--DarkNavi);
+    font-weight: 500;
+}
 
 .btn{
     flex-shrink: 0;

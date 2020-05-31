@@ -1,27 +1,55 @@
 import React from 'react'
 import Styles from './diagramSelector.module.css'
+import iconAdd from '../../assets/plus.png'
+import ModalCreateDiagram from '../ModalCreateDiagram'
+class DiagramSelector extends React.Component{
+    state={
+        visibleNew:false
+    }
 
-const DiagramSelector = (props) =>{
-    function displayButtons(){
+    displayCreateDiagram=()=>{
+        this.setState({
+            visibleNew:true,
+        })
+    }
+    closeCreateDiagram=()=>{
+        this.setState({
+            visibleNew:false,
+        })
+    } 
+    
+
+    
+    displayButtons=()=>{
         const buttons=[]
-        props.diagrams.forEach(function (diagram,key)  {
-                const active=(props.focus===key)?Styles.active:' ';
+        
+        
+        this.props.diagrams.forEach( (diagram,key)=> {
+                const active=(this.props.focus===key)?Styles.active:' ';
                 buttons.push(
-                    <button key={key} onClick={()=>props.onSelectDiagram(key)} className={`${Styles.btn} ${active}`}>
+                    <button key={key} onClick={()=>{this.props.onSelectDiagram(key)}} className={`${Styles.btn} ${active}`}>
                         {diagram.title}
                     </button>
                 )
         })
         return buttons;
     }
-    
-    return(
-        <div className={Styles.selector}>
-          {displayButtons()}
-           
-        </div>
-    )
-
+    render(){
+        return(
+            <div className={Styles.DiagramSelector}>
+                <div className={Styles.selector}>
+                    {this.displayButtons()}
+                </div>
+                <div className={Styles.addDiagram}>
+                    <button className={Styles.btnAdd} onClick={this.displayCreateDiagram}>
+                        +
+                    
+                    </button>
+                </div>
+                <ModalCreateDiagram  visible={this.state.visibleNew} onNew={this.props.onNew} onClose={this.closeCreateDiagram}/>
+            </div>
+        )
+    }
 }
 
 export default DiagramSelector;
