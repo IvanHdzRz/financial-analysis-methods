@@ -15,6 +15,7 @@
 .tabBody{
     grid-area: body;
     display: grid;
+    width: 100%;
 }
 .diagrams{
     display:grid;

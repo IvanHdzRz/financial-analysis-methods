@@ -60,3 +60,29 @@
     grid-area: cashflow;
     justify-self:center ;
 }*/
+
+@media (min-width: 768px) {
+    .workbench{
+        width: 100vw;
+        /*display: grid;
+        grid-template-columns:320px auto;
+        grid-template-areas: 
+        "options diagram"
+        ;*/
+        flex-direction: row-reverse;
+    }
+    .diagram{
+        flex-basis: 0;
+        flex-grow: 3;
+        grid-area: diagram;
+        width: 100%;
+        height: 100%;
+    }
+    .options{
+        flex-basis: 0;
+        flex-grow: 1;
+        grid-area: options;
+        width:100%;
+        height: 100%;
+    }
+}

@@ -1,3 +1,9 @@
+.AmountSelector{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .headers,.header{
     display:flex;
     justify-content:space-evenly;
@@ -39,4 +45,7 @@
 }
 .activePoint{
     background-color: var(--ActiveYellow);
+}
+.tabSelected{
+    height: 100%;
 }

@@ -43,12 +43,12 @@ class AmountSelector extends React.Component {
     render(){
          
         return (
-            <div className='options'>
+            <div className={Styles.AmountSelector}>
                 <div className={Styles.headers}>
                    <span>Tipo:</span>
                    {this.displayHeaders()}
                 </div>        
-                <div className='tab selected'>
+                <div className={Styles.tabSelected}>
                     {this.props.tabs.get(this.state.optionsShowed).children}
                 </div>
             </div>

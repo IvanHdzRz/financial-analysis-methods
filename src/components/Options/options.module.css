@@ -1,7 +1,14 @@
 .options{
     background-color: var(--LightNavi);
+    display: grid;
+    grid-template-rows: 3rem auto;
+    grid-template-areas:
+    "header"
+    "tab"
+    ;
 }
 .headers{
+    grid-area: header;
     display:flex;
     justify-content: space-evenly;
     align-items: center;
@@ -21,5 +28,8 @@
     color:var(--ActiveYellow);
     border-bottom: 0.2rem solid var(--ActiveYellow);
 }
+.tabSelected{
+    grid-area: tab;
 
+}
 

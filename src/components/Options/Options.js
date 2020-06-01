@@ -29,7 +29,7 @@ class Options extends React.Component {
                 <div className={Styles.headers}>
                    {this.displayHeaders()}
                 </div>        
-                <div className='tab selected'>
+                <div className={Styles.tabSelected}>
                     {this.props.tabs.get(this.state.optionsShowed).children}
                 </div>
             </div>
