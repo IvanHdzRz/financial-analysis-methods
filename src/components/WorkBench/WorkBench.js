@@ -86,7 +86,7 @@ class WorkBench extends React.Component{
                     onClose={this.closeEdit} 
                     title={'Nuevo titulo'}   
                     id={id} 
-                    
+                    type='text'
                 />
                 <ModalEditProperty 
                     visible={isVisibleEditInterest} 
@@ -94,7 +94,7 @@ class WorkBench extends React.Component{
                     onClose={this.closeEdit} 
                     title={'Nuevo interes'}   
                     id={id} 
-                    
+                    type='number'
                 />
 
             </div>

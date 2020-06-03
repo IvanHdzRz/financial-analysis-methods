@@ -5,6 +5,11 @@ import Styles from './modalCreateDiagram.module.css'
 const ModalCreateDiagram=(props)=>{
    const txtTitulo= React.createRef();
     const txtInterest=React.createRef();
+    const createDiagram=(e)=>{
+        props.onNew(txtTitulo.current.value,txtInterest.current.value);
+        props.onClose();
+        e.preventDefault();
+    }
     if (props.visible===false){
         return null
     }
@@ -12,24 +17,22 @@ const ModalCreateDiagram=(props)=>{
         
         <Modal visible={true}>
             <div className={Styles.formNewDiagram}>
+                <form onSubmit={createDiagram}>
                 <h2 className={Styles.title}>Nuevo Diagrama</h2>
                 <label htmlFor='txtTitle'  className={Styles.label}>Titulo</label>
-                <input type='text' name='title'  className={Styles.input} id='txtTitle' autoFocus ref={txtTitulo}/>
-                <label htmlFor='txtInterest'  className={Styles.labelI}>Interes:</label>
-                <input type='text' name='interest'  className={Styles.inputI} id='txtInterest'  ref={txtInterest}/>
+                <input type='text' name='title'  className={Styles.input} id='txtTitle' autoFocus ref={txtTitulo} required autoComplete={false}/>
+                <label htmlFor='txtInterest'  className={Styles.labelI}>% Interes:</label>
+                <input type='number' name='interest'  className={Styles.inputI} id='txtInterest'  ref={txtInterest} required step='any' autoComplete={false}/>
                  <button  className={Styles.btnCancel} onClick={props.onClose}>
                      Cancelar
                 </button> 
-                <button  
-                     className={Styles.btnCreate}
-                    onClick={()=>{
-                    //se llama a la funcion crear nuevo diagrama y se pasa como parametro el valor del titulo
-                        props.onNew(txtTitulo.current.value,txtInterest.current.value);
-                                //se cierra el modal
-                        props.onClose();
-                    }}>
-                    Crear
-                </button>
+                <input 
+                    type='submit'  
+                    value='Crear'
+                    className={Styles.btnCreate}
+                />
+            
+                </form>
             </div>
         </Modal>
     )

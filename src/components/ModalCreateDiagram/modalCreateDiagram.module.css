@@ -1,4 +1,4 @@
-.formNewDiagram{
+.formNewDiagram>form{
     width: 18rem;
     height: 15rem;
     display:grid;
