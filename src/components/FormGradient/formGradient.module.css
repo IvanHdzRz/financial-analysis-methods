@@ -1,4 +1,4 @@
-.formGradient{
+.formGradient>form{
    margin-top:1rem;
     min-height: 10rem; 
    display: grid;

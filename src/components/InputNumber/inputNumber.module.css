@@ -1,0 +1,25 @@
+
+.none{
+    display: none;
+}
+.inputNumber{
+    position: relative;
+}
+.errorLabel{
+    
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    font-size: 0.8rem;
+    z-index: 10;
+    color: white;
+    position: absolute;
+    top:-12px;
+    left:0;
+    transform: translateX(-50%);
+    background-color:rgba(255,50,50,0.8);
+    border-radius: 0.4rem;
+}
+.inputError{
+    border: 1px solid var(--Red);
+}
