@@ -7,7 +7,7 @@ const FormSelectDiagram=(props)=>{
         diagrams.forEach((diagram,id) => {
             checkBoxes.push(
                 <div key={id+'div option'}>
-                    <input type="checkbox" id={id} key={id} name="diagramsTobeSelected"/>
+                    <input type="checkbox" id={id} key={id} name="diagramsTobeSelected" value={id} className={'diagramCheckbox'}/>
                     <label htmlFor={id} key={id+'label'}>{diagram.title}</label>
                     
                 </div>

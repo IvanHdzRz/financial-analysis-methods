@@ -1,13 +1,18 @@
 import React from 'react'
-
+import Modal from '../Modal'
 
 class Steper extends React.Component{
     state={
         step:0,
         methodChoosen:'',
-        diagramsChoosen:[]
+        diagramsChoosen:[],
+        error:false,
+        msgError:''
     }
-
+    closeErrorModal=()=>{
+        const prevState=this.state;
+        this.setState({...prevState,error:false})
+    }
     nextStep=(e)=>{
         //cada vez que se haga un paso guardar la opcion escojida y guadarla en opcions
         const prevState=this.state
@@ -30,8 +35,21 @@ class Steper extends React.Component{
     }
     saveDiagramsSelected=(currentStep)=>{
         const prevState=this.state;
-        console.log(document.querySelector('input[name="diagramsTobeSelected"]:checked').value)
-        this.setState({...prevState,step:currentStep+1})
+        const checkboxes=document.getElementsByClassName('diagramCheckbox')
+        let count=0;
+        const diagramsSelected=[];
+       for(let i=0;i<checkboxes.length;i++){
+            if(checkboxes[i].checked){
+                count++
+                diagramsSelected.push(checkboxes[i].value)
+            }
+       } 
+        
+        if(count>0){
+        this.setState({...prevState,step:currentStep+1,diagramsChoosen:diagramsSelected})
+        }else{
+            this.setState({...prevState,error:true,msgError:'selecciona por lo menos un diagrama'})
+        }
     }
     hadleSubmit=(e)=>{
         const currentStep=this.state.step;
@@ -51,13 +69,17 @@ class Steper extends React.Component{
                 <button className='btnBack' onClick={this.prevStep} disabled={currentStep===0?true:false}>
                     Regresar
                 </button>
-                <form onSubmit={this.hadleSubmit}>
+                <form onSubmit={this.hadleSubmit} id='formSteper'>
                     {/*muestra el formulario del paso actual*/}
                     {this.props.steps[currentStep]}
                     <input type='submit' value='next' disabled={currentStep<this.props.steps.length-1?false:true}/>
                     {console.log(currentStep, this.props.steps.length)}
                 </form>
                 {console.log(this.state)}
+                <Modal visible={this.state.error}>
+                    <h2>{this.state.msgError}</h2>
+                    <button onClick={this.closeErrorModal}>Entendido</button>
+                </Modal>
             </div>
         )
     }
