@@ -8,6 +8,19 @@ const ModalEditProperty = (props)=>{
         props.onClose();
         e.preventDefault();
     }
+    let input;
+    if(props.type==='text'){
+        input=<input type='text' name='Edit'  className={Styles.input} id='txtEdit' autoFocus ref={newValue} required/>
+    }
+    if(props.type==='number'){
+        input=<input type='number' name='Edit'  className={Styles.input} id='txtEdit' autoFocus ref={newValue} required/>
+    }
+    if(props.type==='float'){
+        input=<input type='number' step='any' name='Edit'  className={Styles.input} id='txtEdit' autoFocus ref={newValue} required/>
+    }
+    
+    
+    
     if(props.visible===false){
         return  null
     }else{
@@ -18,7 +31,7 @@ const ModalEditProperty = (props)=>{
                     <div className={Styles.formEdit}>
                             <form onSubmit={edit}>
                             <label htmlFor='txtEdit'  className={Styles.label}>{props.title}</label>
-                            <input type={props.type} name='Edit'  className={Styles.input} id='txtEdit' autoFocus ref={newValue} required/>
+                            {input}
                             <input 
                                 type='submit' 
                                 value='guardar'

@@ -9,6 +9,9 @@ import Amount from './classes/Amount';
 import plusIcon from './assets/plus.png'
 import compareIcon from './assets/compare.png'
 import navStyles from './components/Navigation/navigation.module.css'
+import Steper from './components/Steper'
+import FormSelectMethod from './components/FormSelectMethod'
+import FormSelectDiagrams from './components/FormSelectDiagrams'
 class App extends React.Component{
   
   constructor(){
@@ -119,7 +122,15 @@ class App extends React.Component{
         bodyForTab:2,
         body:
           <div>
-            <h1>Seccion comparar</h1>
+            <Steper 
+              steps={
+                [
+                  <FormSelectMethod />,
+                  <FormSelectDiagrams  diagrams={diagrams}/>,
+                  <h3>seccion de resultados uwuwuwuw</h3>
+                ]
+              }
+            />
           </div>
       })
     return (

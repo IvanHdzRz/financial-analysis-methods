@@ -94,7 +94,7 @@ class WorkBench extends React.Component{
                     onClose={this.closeEdit} 
                     title={'Nuevo interes'}   
                     id={id} 
-                    type='number'
+                    type='float'
                 />
 
             </div>
