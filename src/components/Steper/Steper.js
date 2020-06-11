@@ -66,15 +66,15 @@ class Steper extends React.Component{
         return(
 
             <div className={Styles.steper}>
-                <button className='btnBack' onClick={this.prevStep} disabled={currentStep===0?true:false}>
-                    Regresar
+                <button className={Styles.btnBack} onClick={this.prevStep} disabled={currentStep===0?true:false}>
+                     {'< Regresar'}
                 </button>
                 <form onSubmit={this.hadleSubmit} id='formSteper'>
                     {/*muestra el formulario del paso actual*/}
                     {this.props.steps[currentStep]}
                     <input 
                         type='submit' 
-                        value='next >' 
+                        value='siguiente >' 
                         disabled={currentStep<this.props.steps.length-1?false:true}
                         className={Styles.btnNext}    
                     />
