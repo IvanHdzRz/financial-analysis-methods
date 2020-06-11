@@ -1,0 +1,26 @@
+.steper{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.btnNext{
+    height: 3rem;
+    width: 7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    border: 2px solid var(--ActiveYellow);
+    color:var(--ActiveYellow);
+    font-size: 1.5rem;
+    background-color: transparent;
+    box-sizing: border-box;
+    border-radius: 1.5rem;
+    transition: all .3s;
+}
+.btnNext:hover{
+    background-color: var(--ActiveYellow);
+    color:var(--DarkNavi);
+}

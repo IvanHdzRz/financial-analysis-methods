@@ -1,6 +1,6 @@
 import React from 'react'
 import Modal from '../Modal'
-
+import Styles from './steper.module.css'
 class Steper extends React.Component{
     state={
         step:0,
@@ -65,14 +65,19 @@ class Steper extends React.Component{
         const currentStep=this.state.step
         return(
 
-            <div className='steper'>
+            <div className={Styles.steper}>
                 <button className='btnBack' onClick={this.prevStep} disabled={currentStep===0?true:false}>
                     Regresar
                 </button>
                 <form onSubmit={this.hadleSubmit} id='formSteper'>
                     {/*muestra el formulario del paso actual*/}
                     {this.props.steps[currentStep]}
-                    <input type='submit' value='next' disabled={currentStep<this.props.steps.length-1?false:true}/>
+                    <input 
+                        type='submit' 
+                        value='next >' 
+                        disabled={currentStep<this.props.steps.length-1?false:true}
+                        className={Styles.btnNext}    
+                    />
                     {console.log(currentStep, this.props.steps.length)}
                 </form>
                 {console.log(this.state)}
