@@ -12,6 +12,7 @@ import navStyles from './components/Navigation/navigation.module.css'
 import Steper from './components/Steper'
 import FormSelectMethod from './components/FormSelectMethod'
 import FormSelectDiagrams from './components/FormSelectDiagrams'
+
 class App extends React.Component{
   
   constructor(){
@@ -127,9 +128,10 @@ class App extends React.Component{
                 [
                   <FormSelectMethod />,
                   <FormSelectDiagrams  diagrams={diagrams}/>,
-                  <h3>seccion de resultados uwuwuwuw</h3>
+                  
                 ]
               }
+              diagrams={diagrams}
             />
           </div>
       })

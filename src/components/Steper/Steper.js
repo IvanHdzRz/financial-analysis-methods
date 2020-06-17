@@ -1,13 +1,15 @@
 import React from 'react'
 import Modal from '../Modal'
 import Styles from './steper.module.css'
+import Results from '../Results'
 class Steper extends React.Component{
     state={
         step:0,
         methodChoosen:'',
         diagramsChoosen:[],
         error:false,
-        msgError:''
+        msgError:'',
+        lastStep:2,
     }
     closeErrorModal=()=>{
         const prevState=this.state;
@@ -63,24 +65,35 @@ class Steper extends React.Component{
     }
     render(){
         const currentStep=this.state.step
-        return(
-
-            <div className={Styles.steper}>
-                <button className={Styles.btnBack} onClick={this.prevStep} disabled={currentStep===0?true:false}>
-                     {'< Regresar'}
-                </button>
+        const {methodChoosen,diagramsChoosen}=this.state
+        let body;
+        if(currentStep<this.state.lastStep){
+            body=(
                 <form onSubmit={this.hadleSubmit} id='formSteper'>
                     {/*muestra el formulario del paso actual*/}
                     {this.props.steps[currentStep]}
                     <input 
                         type='submit' 
                         value='siguiente >' 
-                        disabled={currentStep<this.props.steps.length-1?false:true}
+                        disabled={currentStep<this.props.steps.length?false:true}
                         className={Styles.btnNext}    
                     />
-                    {console.log(currentStep, this.props.steps.length)}
+                    
                 </form>
-                {console.log(this.state)}
+            )
+        }else{
+            body=(<Results method={methodChoosen} diagramsSelected={diagramsChoosen.map(id=>parseInt(id))} diagrams={this.props.diagrams}/>)
+        }
+
+        return(
+
+            <div className={Styles.steper}>
+                <button className={Styles.btnBack} onClick={this.prevStep} disabled={currentStep===0?true:false}>
+                     {'< Regresar'}
+                </button>
+
+                
+                {body}
                 <Modal visible={this.state.error}>
                     <h2>{this.state.msgError}</h2>
                     <button onClick={this.closeErrorModal}>Entendido</button>
