@@ -29,20 +29,23 @@ class Navigation extends React.Component{
     */
     
     render(){
+    
         return(
             <div className={Styles.nav} >
                 <div className={Styles.tabHeaders}>
                     {/*rendereiza los botones para cambiar de pestaña*/}
                     {this.props.tabsHeaders.map(header=>{
+                        const active=header.id===this.state.tabDisplayed?Styles.active:'';
+                        const imgIcon=header.id===this.state.tabDisplayed?header.activeIcon:header.icon;
                         return (
                             <button onClick={()=>{this.changeTab(header.id)}} className={Styles.btn} key={header.id}>
-                                <img src={header.icon} alt={header.title}/> 
-                                <span className={Styles.labelNav}>{header.title}</span>
+                                <img src={imgIcon} alt={header.title}/> 
+                                <span className={`${Styles.labelNav} ${active}`}>{header.title}</span>
                             </button>
                         )
                     })}
                 </div>
-                <div className={Styles.tabBody}>
+                <div className={`${Styles.tabBody}`}>
                     {this.props.tabsBody.get(this.state.tabDisplayed).body}
                 </div>
 

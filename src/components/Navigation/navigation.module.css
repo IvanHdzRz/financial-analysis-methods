@@ -38,8 +38,16 @@
     border:none; 
     box-sizing: border-box;
 }
+.btn>img{
+    width: 24px;
+    height: 24px;
+}
 .labelNav{
     display:block;
     text-transform: capitalize;
+    transition: all .3s;
+}
+.active{
+    color:var(--ActiveYellow);
 }
 /*estilos del modal para nuevo diagrama--------------------------*/

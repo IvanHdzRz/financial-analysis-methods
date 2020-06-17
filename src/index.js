@@ -6,13 +6,14 @@ import Styles from './app.module.css'
 import DiagramSelector from './components/DiagramSelector'
 import WorkBench from './components/WorkBench'
 import Amount from './classes/Amount';
-import plusIcon from './assets/plus.png'
+import graphicIcon from './assets/graphic.png'
+import graphActive from './assets/graphActive.png'
 import compareIcon from './assets/compare.png'
 import navStyles from './components/Navigation/navigation.module.css'
 import Steper from './components/Steper'
 import FormSelectMethod from './components/FormSelectMethod'
 import FormSelectDiagrams from './components/FormSelectDiagrams'
-
+import compareActive from './assets/balance.png'
 class App extends React.Component{
   
   constructor(){
@@ -141,8 +142,8 @@ class App extends React.Component{
         <Navigation 
           tabsHeaders={
             [
-              {id:1,title:'diagramas', icon: plusIcon},
-              {id:2,title:'comparar', icon:compareIcon}
+              {id:1,title:'diagramas', icon: graphicIcon,activeIcon:graphActive},
+              {id:2,title:'comparar', icon:compareIcon,activeIcon:compareActive},
             ]
           }
           tabsBody={tabsBody}
