@@ -23,7 +23,8 @@ const extendDurationTo=(newDuration,fneTables)=>{
      return fneTables.map(fneTable=>{
          return({
             title:fneTable.title,
-            fne:extendFneTable(fneTable.fne)
+            fne:extendFneTable(fneTable.fne),
+            i:fneTable.i
         })
      })
 }

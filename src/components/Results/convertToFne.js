@@ -7,7 +7,8 @@ const convertToFne=(selected,diagrams)=>{
         return(
             {
                 title:diagrams.get(id).title,
-                fne: fne
+                fne: fne,
+                i:diagrams.get(id).interest,
             }
         )
     })
