@@ -15,12 +15,14 @@ class Results extends React.Component{
         
         const {diagramsSelected,diagrams,method}=this.props
         let results;
+        const fneMustBeExtended=method!=='CAUE/BAUE';
         let fneTables = convertToFne(diagramsSelected,diagrams);
         const matchedDuration=matchDuration(fneTables);
-        fneTables=extendDurationTo(matchedDuration,fneTables);
-        console.log(fneTables)
+        fneTables=fneMustBeExtended?extendDurationTo(matchedDuration,fneTables):fneTables;
+        
         
         results =compareFneTablesBy(method,fneTables);
+        console.log(results)
         this.setState({done:true,results:results,matchedDuration:matchedDuration})
         
         
