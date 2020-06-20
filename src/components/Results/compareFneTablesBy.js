@@ -23,11 +23,11 @@ const compareFneTablesBy=(method,fneTables)=>{
         tables.sort((a,b)=>{return b.fne.get(0)- a.fne.get(0)})
        //si solo es una tabla 
         if(tables.length===1){
-            return {
+            return [{
                 versus: `${tables[0].title} vs ----,`,
                 vpn:getVpn(parseFloat(tables[0].i)/100,tables[0].fne),
                 winner:tables[0].title    
-            }
+            }]
         }
         let results=[];
         let difOfFne=new Map();
@@ -56,7 +56,7 @@ const compareFneTablesBy=(method,fneTables)=>{
             
         }
         console.log(results);
-        return results;
+        return results.reverse();
     }
     if(method==='VPN'){
         const results= fneTables.map(fneTable=>{
