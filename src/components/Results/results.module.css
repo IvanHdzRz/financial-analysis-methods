@@ -17,6 +17,31 @@
     font-size: 1.3rem;
 }
 .results>h1{
+    font-weight: 400;
+    text-align: center;
+}
+.analisis{
+    display: flex;
+    justify-content: center;
+}
+.analisis>table>thead>tr>th{
     font-weight: 500;
     text-align: center;
+    background-color: var(--ActiveYellow);
+    color:var(--DarkNavi);
+    padding:5px;
+}
+.analisis>table>tbody>tr>td{
+    text-align: center;
+    padding: 5px;
+}
+.analisis>table>tbody>tr:nth-child(odd){
+    background-color: rgba(255,255,255,.3);
+}
+.analisis>table>tbody>tr:nth-child(even){
+    background-color: rgba(255,255,255,.1);
+}
+.win{
+    background-color: green !important;
+
 }
