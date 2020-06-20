@@ -4,47 +4,26 @@ import convertToFne from './convertToFne'
 import matchDuration from './matchDuration';
 import extendDurationTo from './extendDurationTo'
 import compareFneTablesBy from './compareFneTablesBy'
-class Results extends React.Component{
-    state={
-        done:false,
-        results:'',
-        matchedDuration:0
-    }
+const Results =(props)=>{
     
-    compare=()=>{
+    const {diagramsSelected,diagrams,method}=props
+    let results;
+    const fneMustBeExtended=method!=='CAUE/BAUE';
+    let fneTables = convertToFne(diagramsSelected,diagrams);
+    const matchedDuration=matchDuration(fneTables);
+    fneTables=fneMustBeExtended?extendDurationTo(matchedDuration,fneTables):fneTables;
+    results =compareFneTablesBy(method,fneTables);
+    console.log(results)
+    return(
+        <div>
+            <h2>results go here brrr</h2>
+        </div>
+    )
         
-        const {diagramsSelected,diagrams,method}=this.props
-        let results;
-        const fneMustBeExtended=method!=='CAUE/BAUE';
-        let fneTables = convertToFne(diagramsSelected,diagrams);
-        const matchedDuration=matchDuration(fneTables);
-        fneTables=fneMustBeExtended?extendDurationTo(matchedDuration,fneTables):fneTables;
         
+    
         
-        results =compareFneTablesBy(method,fneTables);
-        console.log(results)
-        this.setState({done:true,results:results,matchedDuration:matchedDuration})
-        
-        
-    }
-    render(){
-        const ready=this.state.done;
-        if(!ready){
-            return(
-                <div>
-                    <h1>Calculando...</h1>
-                    {this.compare()}
-                </div>
-            )
-        }else{
-            return (
-                <div>
-                    <p>Utilizando el metodo {this.props.method} e igualando los diagramas a una duracion de {this.state.matchedDuration}</p>
-                    <p>la mejor alterntiva de inversion es: {this.state.results[0].title} con un {this.props.method} de ${new Intl.NumberFormat("es-MX").format(this.state.results[0].vpn)}</p>
-                </div>
-            )
-        }
-    }
+    
 }
 
 export default Results
