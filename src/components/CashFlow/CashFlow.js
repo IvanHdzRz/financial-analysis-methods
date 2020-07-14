@@ -1,50 +1,77 @@
 import React from 'react'
 import Styles from './cashFlow.module.css'
+import getMax from './getMax'
 const CashFlow =(props)=>{
     
     if(props.FneTable.size===0){
         return (<div className={Styles.messageEmpty}><p>woops no hay montos aun, agrega algunos para empezar :D</p></div>)
     }
+    /*medidas en pixeles */
     const height=185;
     const width=350;
-    const getMaxValues=()=>{
-        let max=0;
-        let min=0;
-        props.FneTable.forEach(amount => {
-            max=(amount>max)?amount:max;
-            min=(amount<min)?amount:min;
-        });
+    const fontSize=11;
+    const padding=10;
+    const lineStroke=3;
+    const avaibleHeight=height-2*padding-3*fontSize+2*lineStroke;
+    const avaibleWidth=width-2*padding;
+    /*fin de configuracion de lienzo*/
 
-        return {positive:max, negative:min,total:max+Math.abs(min)}
-    }
-    const maximos=getMaxValues();
-
+    const maximos=getMax(props.FneTable);
+    const ratioPixelsPerCantOfMoney=avaibleHeight/(maximos.positive+Math.abs(maximos.negative))
+    const originOfPositiveAmount=(maximos.positive*ratioPixelsPerCantOfMoney)+padding+fontSize-lineStroke
+    const originOfNegativeAmount=originOfPositiveAmount+fontSize+2*lineStroke;
+    const cantOfPeriods=props.FneTable.size;
+    console.log(cantOfPeriods)
     const drawLines=()=>{
         const lines=[];
         let x1
         let y1
         let x2
         let y2
-        let spacing=(props.FneTable.size>1)?width/props.FneTable.size-1:0;
         let color;
         props.FneTable.forEach((amount,period )=> {
-            x1=(period===0)?3:spacing*period+3;
-            y1=(maximos.positive*height)/maximos.total;
+            x1=cantOfPeriods>1?((avaibleWidth/(cantOfPeriods-1))*period)+padding:padding;
+            y1=amount>=0?originOfPositiveAmount:originOfNegativeAmount;
             x2=x1;
-            y2=y1-((amount*height)/maximos.total)-3;
+            y2=amount>=0?originOfPositiveAmount-amount*ratioPixelsPerCantOfMoney:
+                        originOfNegativeAmount+Math.abs(amount)*ratioPixelsPerCantOfMoney;
+
             color=(amount>0)?Styles.positive:Styles.negative;
-            console.log(x1,y1,x2,y2)
+            
             lines.push(
-                <line 
-                    x1={x1}
-                    y1={y1}
-                    x2={x2}
-                    y2={y2}
-                    strokeWidth={3}
-                    strokeLinecap={"round"}  
-                    className={`${Styles.line} ${color}` }
-                    key={period}
-                />) 
+                <g key={period}>
+                    <text 
+                        className='cantidad'
+                        x={x1-fontSize} 
+                        y={amount>0?y2-lineStroke:y2+fontSize}  
+                        fontSize={fontSize}
+                        fill={'white'}
+                        >
+                        
+                        {amount!==0?amount:''}
+                    </text>
+                    <text 
+                        className='period'
+                        x={x1} 
+                        y={originOfPositiveAmount+fontSize}  
+                        fontSize={fontSize}
+                        fill={'white'}
+                        >
+                        
+                        {period}
+                    </text>
+                    <line 
+                        x1={x1}
+                        y1={y1}
+                        x2={x2}
+                        y2={y2}
+                        strokeWidth={lineStroke}
+                        strokeLinecap={"round"}  
+                        className={`${Styles.line} ${color}` }
+                        key={period}
+                    />
+                </g>
+                ) 
         }); 
         return lines;
     }
