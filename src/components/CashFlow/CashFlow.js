@@ -1,6 +1,7 @@
 import React from 'react'
 import Styles from './cashFlow.module.css'
 import getMax from './getMax'
+import formatNumber from './formatNumber'
 const CashFlow =(props)=>{
     
     if(props.FneTable.size===0){
@@ -48,7 +49,7 @@ const CashFlow =(props)=>{
                         fill={'white'}
                         >
                         
-                        {amount!==0?amount:''}
+                        {amount!==0?formatNumber(amount):''}
                     </text>
                     <text 
                         className='period'
